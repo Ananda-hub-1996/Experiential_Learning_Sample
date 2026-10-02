@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cross-Functional Collaboration: Experiential Learning Design | L&amp;D Work Sample</title>
+<meta name="description" content="L&D work sample: a half-day simulation-based learning experience for 25 senior managers on cross-functional collaboration.">
+
+<!--
+  ============================================================
+  HOW TO MAINTAIN THIS PAGE (no coding needed)
+  ============================================================
+  1. PDF LINKS: search this file for  pdfs/  . There are two links:
+       pdfs/Facilitator_Guide.pdf
+       pdfs/Facilitator_Slides.pdf
+     Your two PDF files must have exactly these names and sit in a
+     folder called  pdfs  next to this index.html.
+  2. TEXT: edit any words between the > and < of a tag.
+     Example:  <p>Edit this sentence.</p>
+  3. YOUR NAME: search for "Ananda Aishwarya" and change it if needed.
+  4. COLOURS: the block called  :root  in the style section holds them.
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1e2532;
+    --muted: #596273;
+    --line: #dde1e8;
+    --bg: #f5f6f8;
+    --paper: #ffffff;
+    --product: #3d6a8a;
+    --tech: #2e7b67;
+    --commercial: #b8862b;
+    --ops: #7b5a8b;
+    --accent: #e2572d;
+    --accent-deep: #9a3418;
+    --accent-soft: #fbe3da;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "Source Sans 3", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 56px 0 8px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.2; margin: 0; }
+  h1 { font-size: 2.1rem; letter-spacing: -0.01em; }
+  h2 { font-size: 1.55rem; margin-bottom: 8px; }
+  h3 { font-size: 1.1rem; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--muted); max-width: 62ch; margin-bottom: 24px; }
+  .small { font-size: 0.92rem; color: var(--muted); }
+
+  /* ---------- top bar ---------- */
+  .topbar { background: var(--paper); border-bottom: 1px solid var(--line); }
+  .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
+  .topbar .who { font-weight: 600; font-size: 0.95rem; }
+  .topbar nav { display: flex; gap: 20px; font-size: 0.95rem; }
+  .topbar nav a { text-decoration: none; color: var(--muted); }
+  .topbar nav a:hover { color: var(--ink); text-decoration: underline; }
+
+  /* ---------- hero ---------- */
+  .hero { background: var(--paper); border-bottom: 1px solid var(--line); padding: 56px 0 48px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+  .hero .tagline { font-family: var(--serif); font-size: 1.2rem; color: var(--muted); margin: 14px 0 24px; max-width: 34ch; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 12px 20px; border-radius: 6px;
+    font-weight: 600; text-decoration: none; border: 2px solid var(--ink);
+  }
+  .btn-solid { background: var(--ink); color: #fff; }
+  .btn-solid:hover { background: #2d3748; }
+  .btn-line { background: transparent; color: var(--ink); }
+  .btn-line:hover { background: var(--bg); }
+
+  .quad { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .quad div { border-radius: 6px; padding: 16px; color: #fff; min-height: 112px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .quad strong { font-size: 1rem; }
+  .quad span { font-size: 0.85rem; opacity: 0.92; line-height: 1.3; }
+  .quad .q1 { background: var(--product); }
+  .quad .q2 { background: var(--tech); text-align: right; }
+  .quad .q3 { background: var(--commercial); }
+  .quad .q4 { background: var(--ops); text-align: right; }
+  .quad .hub {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 84px; height: 84px; border-radius: 50%; min-height: 0; padding: 0;
+    background: var(--ink); border: 5px solid var(--paper);
+    align-items: center; justify-content: center; text-align: center;
+    font-size: 0.78rem; font-weight: 700; line-height: 1.15; letter-spacing: 0.02em;
+  }
+
+  /* ---------- fact strip ---------- */
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 40px; border-top: 1px solid var(--line); }
+  .facts div { padding: 16px 16px 0 0; }
+  .facts dt { font-size: 0.85rem; color: var(--muted); }
+  .facts dd { margin: 2px 0 0; font-weight: 600; }
+  .facts-wrap { background: var(--paper); border-bottom: 1px solid var(--line); }
+
+  /* ---------- generic cards ---------- */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 22px; }
+  .card h3 { margin-bottom: 8px; }
+  .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+  .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; padding: 16px 20px; margin-top: 20px; }
+  .callout p { margin: 0; }
+  ul.tight { margin: 0; padding-left: 20px; }
+  ul.tight li { margin-bottom: 6px; }
+
+  .objective { background: var(--ink); color: #fff; border-radius: 8px; padding: 22px 26px; margin-top: 20px; }
+  .objective h3 { color: #fff; margin-bottom: 6px; }
+  .objective p { margin: 0; color: #dfe4ec; }
+
+  /* ---------- design response ---------- */
+  .contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--paper); }
+  .contrast > div { padding: 22px; }
+  .contrast > div:first-child { background: #eef0f4; color: var(--muted); }
+  .contrast h3 { margin-bottom: 8px; }
+  .contrast .tag { display: inline-block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; }
+
+  /* ---------- arc ---------- */
+  .arc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: step; }
+  .arc li { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 18px; position: relative; }
+  .arc .n {
+    width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; margin-bottom: 10px;
+  }
+  .arc h3 { font-family: var(--sans); font-size: 1.02rem; font-weight: 700; }
+  .arc .moment { font-size: 0.92rem; color: var(--muted); margin: 2px 0 8px; }
+  .arc .do { font-size: 0.92rem; margin: 0; }
+  .arc li.key { border-color: var(--accent); background: var(--accent-soft); }
+  .arc li.key .n { background: var(--accent); }
+  .arc li.key .moment { color: #6b3a2a; }
+
+  .timeline { display: flex; height: 18px; border-radius: 4px; overflow: hidden; margin: 28px 0 14px; gap: 2px; }
+  .timeline span { display: block; }
+  .legend { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 24px; }
+  .legend li { display: grid; grid-template-columns: 14px 1fr; gap: 10px; align-items: start; font-size: 0.93rem; }
+  .legend i { width: 14px; height: 14px; border-radius: 3px; margin-top: 4px; display: block; }
+  .legend b { display: block; }
+  .legend em { font-style: normal; color: var(--muted); }
+
+  /* ---------- simulation ---------- */
+  .persp { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .persp div { color: #fff; border-radius: 8px; padding: 18px; }
+  .persp b { display: block; font-size: 1.05rem; margin-bottom: 4px; }
+  .persp span { font-size: 0.92rem; line-height: 1.35; display: block; }
+  .persp .p1 { background: var(--product); }
+  .persp .p2 { background: var(--tech); }
+  .persp .p3 { background: var(--commercial); }
+  .persp .p4 { background: var(--ops); }
+
+  .options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 14px 0; }
+  .options div { border: 2px solid var(--ink); border-radius: 6px; padding: 10px; text-align: center; font-weight: 600; background: var(--paper); }
+
+  .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-items: end; margin-top: 8px; }
+  .steps4 > div { border-radius: 8px; padding: 18px; color: #fff; display: flex; flex-direction: column; }
+  .steps4 b { font-size: 1.2rem; letter-spacing: 0.02em; }
+  .steps4 p { margin: 6px 0 12px; font-size: 0.95rem; }
+  .steps4 em { font-size: 0.88rem; opacity: 0.95; }
+  .s1 { background: #f8c9b9; color: var(--ink); min-height: 190px; }
+  .s2 { background: #ee9a7a; color: var(--ink); min-height: 215px; }
+  .s3 { background: #e2572d; min-height: 240px; }
+  .s4 { background: #9a3418; min-height: 265px; }
+
+  /* ---------- what I designed ---------- */
+  .parts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .part { background: var(--paper); border: 1px solid var(--line); border-left: 5px solid var(--ink); border-radius: 8px; padding: 20px 22px; }
+  .part h3 { margin-bottom: 6px; }
+  .part .where { font-size: 0.88rem; color: var(--muted); margin-top: 8px; }
+  .part.wide { grid-column: 1 / -1; }
+
+  /* ---------- claims ---------- */
+  .claims { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .claims .yes { border-top: 4px solid var(--tech); }
+  .claims .no { border-top: 4px solid var(--muted); }
+
+  /* ---------- explore ---------- */
+  .explore { padding-bottom: 72px; }
+  .doc {
+    display: flex; flex-direction: column; justify-content: space-between; gap: 18px;
+    background: var(--ink); color: #fff; text-decoration: none;
+    border-radius: 10px; padding: 28px;
+    border: 2px solid var(--ink);
+  }
+  .doc:hover { background: #2d3748; }
+  .doc h3 { color: #fff; font-size: 1.35rem; margin-bottom: 6px; }
+  .doc p { color: #d3d9e3; margin: 0; }
+  .doc ul { margin: 12px 0 0; padding-left: 18px; color: #d3d9e3; font-size: 0.93rem; }
+  .doc .go { font-weight: 700; font-size: 1.05rem; }
+  .doc .go span { color: #ffb59c; }
+  .doc.alt { background: var(--paper); color: var(--ink); border-color: var(--ink); }
+  .doc.alt:hover { background: #eef0f4; }
+  .doc.alt h3 { color: var(--ink); }
+  .doc.alt p, .doc.alt ul { color: var(--muted); }
+  .doc.alt .go span { color: var(--accent-deep); }
+
+  footer { border-top: 1px solid var(--line); background: var(--paper); padding: 24px 0; }
+  footer p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+
+  /* ---------- small screens ---------- */
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns: 1fr; gap: 32px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .grid2, .grid3, .contrast, .claims, .parts { grid-template-columns: 1fr; }
+    .arc, .persp, .options, .steps4 { grid-template-columns: 1fr 1fr; }
+    .legend { grid-template-columns: 1fr 1fr; }
+    .steps4 > div { min-height: 0 !important; }
+    .topbar nav { display: none; }
+  }
+  @media (max-width: 520px) {
+    body { font-size: 16px; }
+    h1 { font-size: 1.7rem; }
+    .arc, .persp, .options, .steps4, .legend, .facts { grid-template-columns: 1fr; }
+  }
+  @media print {
+    .topbar nav, .hero-actions { display: none; }
+    body { background: #fff; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ========== TOP BAR ========== -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="who">L&amp;D work sample by Ananda Aishwarya</div>
+    <nav aria-label="Page sections">
+      <a href="#brief">The brief</a>
+      <a href="#response">Design response</a>
+      <a href="#experience">The experience</a>
+      <a href="#designed">What I designed</a>
+      <a href="#explore">View the work</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Cross-Functional Collaboration: Experiential Learning Design</h1>
+      <p class="tagline">A simulation-based half-day experience that helps senior managers practise making one decision from four partial pictures.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="pdfs/Facilitator_Guide.pdf" target="_blank" rel="noopener">View Facilitator Guide →</a>
+        <a class="btn btn-line" href="pdfs/Facilitator_Slides.pdf" target="_blank" rel="noopener">View Facilitator Slides →</a>
+      </div>
+    </div>
+
+    <div class="quad" role="img" aria-label="Four functions, Product, Technology, Commercial and Operations, around one decision">
+      <div class="q1"><strong>Product</strong><span>Customer value and proposition</span></div>
+      <div class="q2"><strong>Technology</strong><span>Technical readiness and reliability</span></div>
+      <div class="q3"><strong>Commercial</strong><span>Customer confidence and market opportunity</span></div>
+      <div class="q4"><strong>Operations</strong><span>Implementation and support capacity</span></div>
+      <div class="hub">ONE<br>DECISION</div>
+    </div>
+  </div>
+</div>
+
+<div class="facts-wrap">
+  <div class="wrap">
+    <dl class="facts" style="margin-top:0;border-top:none;padding:8px 0 20px;">
+      <div><dt>Client</dt><dd>A well-known technology company</dd></div>
+      <div><dt>Audience</dt><dd>25 senior managers</dd></div>
+      <div><dt>Format</dt><dd>Half-day, 3 hours 45 minutes</dd></div>
+      <div><dt>My work</dt><dd>Session design, simulation, materials and facilitation tools</dd></div>
+    </dl>
+  </div>
+</div>
+
+<main>
+
+<!-- ========== 1-4. CONTEXT, CHALLENGE, AUDIENCE, OBJECTIVE ========== -->
+<section id="brief">
+  <div class="wrap">
+    <h2>The brief</h2>
+    <p class="lede">What the organisation asked for, and how I read the problem behind it.</p>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>Context</h3>
+        <p>A well-known technology company asked for a half-day experience for 25 senior managers to strengthen how they work across functions.</p>
+      </div>
+      <div class="card">
+        <h3>Challenge</h3>
+        <ul class="tight">
+          <li>Departments were operating in silos.</li>
+          <li>Communication and coordination were poor.</li>
+          <li>Together, these recently contributed to a major project-delivery setback.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="objective">
+      <h3>Objective</h3>
+      <p>Build trust and enhance cross-functional collaboration among leaders.</p>
+    </div>
+
+    <div class="callout">
+      <p><strong>How I framed it.</strong> Senior leaders often do not lack information. They lack a shared picture of the problem. Each function holds legitimate information, reads it through its own priorities and fills gaps with assumptions. <strong>Different perspectives are not the problem. A fragmented picture is.</strong></p>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h3>Design challenge I set myself</h3>
+      <p style="margin:0;">How might we help 25 senior managers experience what happens when capable functions decide with a partial picture, and practise the behaviours that turn different perspectives into a shared decision they can own?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5. DESIGN RESPONSE ========== -->
+<section id="response">
+  <div class="wrap">
+    <h2>Why a simulation instead of presenting concepts</h2>
+    <p class="lede">Three commitments shaped the design.</p>
+
+    <div class="contrast">
+      <div>
+        <span class="tag">The usual response</span>
+        <h3>Explain a collaboration model</h3>
+        <p>Senior managers have seen collaboration models before. A model delivered first can be nodded at and left in the room.</p>
+      </div>
+      <div>
+        <span class="tag" style="color:var(--accent-deep);">The design choice</span>
+        <h3>Let them feel it first, then name it</h3>
+        <p>Participants make a real decision with distributed information. The debrief creates the need for the framework before it is shown, so the framework names something they have already felt.</p>
+      </div>
+    </div>
+
+    <div class="grid3" style="margin-top:20px;">
+      <div class="card">
+        <h3>Experience before explanation</h3>
+        <p>Leaders feel what a fragmented picture does to a decision, then name the behaviours themselves.</p>
+      </div>
+      <div class="card">
+        <h3>Differences are material, not a fault</h3>
+        <p>Every function stays legitimate. No function is the problem and none holds the obvious answer.</p>
+      </div>
+      <div class="card">
+        <h3>Practise, then transfer</h3>
+        <p>Two attempts at the same decision, then one real workplace situation to apply the behaviours to.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>Why a fictional company.</strong> The distance is deliberate. Leaders can examine their own patterns without reopening the real project setback in front of peers. The real work comes back in My Silo Moment, on each participant's own terms.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. LEARNING EXPERIENCE ========== -->
+<section id="experience">
+  <div class="wrap">
+    <h2>The learning experience</h2>
+    <p class="lede">One arc in eight moves. The framework arrives fifth, after participants have already lived the problem and started to describe the fix.</p>
+
+    <ol class="arc">
+      <li>
+        <span class="n">1</span>
+        <h3>Experience</h3>
+        <p class="moment">Reflection and Round 1</p>
+        <p class="do">Recall real partial pictures, then decide as four functions with distributed information.</p>
+      </li>
+      <li>
+        <span class="n">2</span>
+        <h3>Notice</h3>
+        <p class="moment">Round 1 debrief: what happened?</p>
+        <p class="do">Reconstruct what they knew, what they lacked and when things changed.</p>
+      </li>
+      <li>
+        <span class="n">3</span>
+        <h3>Connect</h3>
+        <p class="moment">Debrief: how did we work? What was the impact?</p>
+        <p class="do">Link their own behaviour to the quality and speed of the decision.</p>
+      </li>
+      <li>
+        <span class="n">4</span>
+        <h3>Name</h3>
+        <p class="moment">Replay</p>
+        <p class="do">Say, in their own words, what they would do differently.</p>
+      </li>
+      <li class="key">
+        <span class="n">5</span>
+        <h3>Frame</h3>
+        <p class="moment">SHARE, SEEK, SURFACE, ALIGN</p>
+        <p class="do">See their own behaviours named, then practise them against Round 1.</p>
+      </li>
+      <li>
+        <span class="n">6</span>
+        <h3>Re-practise</h3>
+        <p class="moment">Round 2 and debrief</p>
+        <p class="do">Use the behaviours deliberately when conditions change.</p>
+      </li>
+      <li>
+        <span class="n">7</span>
+        <h3>Transfer</h3>
+        <p class="moment">My Silo Moment and Peer Exchange</p>
+        <p class="do">Apply the lens to a live workplace situation with a peer.</p>
+      </li>
+      <li>
+        <span class="n">8</span>
+        <h3>Commit</h3>
+        <p class="moment">Commitment Card</p>
+        <p class="do">Choose one specific, observable behaviour to try next.</p>
+      </li>
+    </ol>
+
+    <h3 style="margin-top:44px;">The shape of the 3 hours 45 minutes</h3>
+    <div class="timeline" role="img" aria-label="Session timeline across 225 minutes">
+      <span style="flex:30;background:#4a5565"></span>
+      <span style="flex:50;background:#1e2532"></span>
+      <span style="flex:10;background:#cfd5de"></span>
+      <span style="flex:35;background:#e2572d"></span>
+      <span style="flex:40;background:#9a3418"></span>
+      <span style="flex:60;background:#3d6a8a"></span>
+    </div>
+    <ul class="legend">
+      <li><i style="background:#4a5565"></i><div><b>Set up</b><em>0:00 to 0:30. Welcome, reflection in mixed trios, simulation briefing.</em></div></li>
+      <li><i style="background:#1e2532"></i><div><b>Experience</b><em>0:30 to 1:20. Function preparation, Round 1, Round 1 debrief.</em></div></li>
+      <li><i style="background:#cfd5de"></i><div><b>Break</b><em>1:20 to 1:30.</em></div></li>
+      <li><i style="background:#e2572d"></i><div><b>Name and frame</b><em>1:30 to 2:05. Framework, then practice on Round 1.</em></div></li>
+      <li><i style="background:#9a3418"></i><div><b>Re-practise</b><em>2:05 to 2:45. Round 2 with a new event, then debrief.</em></div></li>
+      <li><i style="background:#3d6a8a"></i><div><b>Transfer and commit</b><em>2:45 to 3:45. My Silo Moment, Peer Exchange, commitment, close.</em></div></li>
+    </ul>
+
+    <!-- The simulation itself -->
+    <h3 style="margin-top:48px;">Inside the simulation: The Launch Decision</h3>
+    <p class="lede" style="margin-top:6px;">A fictional company, NexaTech, is six weeks from launching NexaFlow. The project is officially on track, but different functions see different readiness signals. Everyone gets the same common brief. Each function then receives only its own brief.</p>
+
+    <div class="persp">
+      <div class="p1"><b>Product</b><span>Protects customer value and the credibility of the proposition.</span></div>
+      <div class="p2"><b>Technology</b><span>Protects reliability and technical readiness.</span></div>
+      <div class="p3"><b>Commercial</b><span>Protects customer confidence, market momentum and opportunity.</span></div>
+      <div class="p4"><b>Operations</b><span>Protects implementation quality, support capacity and readiness.</span></div>
+    </div>
+
+    <p style="margin-top:20px;"><strong>One collective recommendation from four options, with no predetermined correct answer:</strong></p>
+    <div class="options">
+      <div>Launch as planned</div>
+      <div>Phase the launch</div>
+      <div>Reduce initial scope</div>
+      <div>Delay the launch</div>
+    </div>
+    <p class="small">The group must also explain what it is protecting, what it is willing to compromise, the biggest risk it is accepting, and what needs to happen next.</p>
+
+    <div class="grid2" style="margin-top:20px;">
+      <div class="card">
+        <h3>Round 1</h3>
+        <p>Twenty minutes, one decision room, distributed information. The facilitator observes the system and does not steer.</p>
+      </div>
+      <div class="card">
+        <h3>Round 2</h3>
+        <p>A new event card changes the conditions: an important customer asks for an earlier date. Groups revisit the decision, using SHARE, SEEK, SURFACE and ALIGN deliberately.</p>
+      </div>
+    </div>
+
+    <!-- The framework -->
+    <h3 style="margin-top:48px;">The behavioural framework</h3>
+    <p class="lede" style="margin-top:6px;">Four observable behaviours, introduced from the participants' own replay answers rather than from a slide.</p>
+    <div class="steps4">
+      <div class="s1"><b>SHARE</b><p>Make relevant information visible early.</p><em>What does another function need to know to make a better decision?</em></div>
+      <div class="s2"><b>SEEK</b><p>Understand before assuming or proposing.</p><em>What might I be missing?</em></div>
+      <div class="s3"><b>SURFACE</b><p>Make risks, constraints and disagreements discussable.</p><em>What needs to be made visible before we decide?</em></div>
+      <div class="s4"><b>ALIGN</b><p>Turn different perspectives into a shared decision.</p><em>What are we collectively trying to achieve, and what trade-offs are we willing to own?</em></div>
+    </div>
+    <p class="small" style="margin-top:14px;">Alignment is not agreement. It requires enough shared understanding to make and own a decision together.</p>
+  </div>
+</section>
+
+<!-- ========== 7. WHAT I DESIGNED ========== -->
+<section id="designed">
+  <div class="wrap">
+    <h2>What I designed</h2>
+    <p class="lede">Seven components, all contained in the two PDFs.</p>
+
+    <div class="parts">
+      <div class="part" style="border-left-color:var(--product);">
+        <h3>Simulation</h3>
+        <p>The Launch Decision: a two-round cross-functional decision with four perspectives, distributed information, four options and a dependency map for the facilitator.</p>
+        <p class="where">Facilitator Guide, Sections 07 to 11</p>
+      </div>
+      <div class="part" style="border-left-color:var(--tech);">
+        <h3>Participant materials</h3>
+        <p>Common brief, four function briefs, preparation sheet, two decision sheets, Round 2 event card, framework reference, My Silo Moment worksheet, Peer Exchange prompts and Commitment Card.</p>
+        <p class="where">Facilitator Guide, Appendices A to I</p>
+      </div>
+      <div class="part" style="border-left-color:var(--commercial);">
+        <h3>Facilitator guide</h3>
+        <p>Rationale, learning objectives, minute-by-minute run of show with slide numbers, word-for-word lines, contingencies, room setup, materials list and an observation sheet.</p>
+        <p class="where">Facilitator Guide, Sections 01 to 16 and Appendix J</p>
+      </div>
+      <div class="part" style="border-left-color:var(--ops);">
+        <h3>Facilitation slides</h3>
+        <p>A 25-slide deck that follows the run of show, each slide tagged with its timing and segment.</p>
+        <p class="where">Facilitator Slides, slides 1 to 25</p>
+      </div>
+      <div class="part" style="border-left-color:var(--accent);">
+        <h3>Debrief</h3>
+        <p>Round 1: what happened, how did we work, what was the impact, then replay. Round 2: what was different, ending on "Did using the framework guarantee agreement?"</p>
+        <p class="where">Facilitator Guide, Sections 09 and 11. Slides 11 to 14 and 21</p>
+      </div>
+      <div class="part" style="border-left-color:var(--accent-deep);">
+        <h3>Behavioural framework</h3>
+        <p>SHARE, SEEK, SURFACE, ALIGN, with prompts, a Round 1 practice step and language guardrails so the model is not oversold.</p>
+        <p class="where">Facilitator Guide, Section 10. Slides 16 to 18</p>
+      </div>
+      <div class="part wide" style="border-left-color:#3d6a8a;">
+        <h3>Workplace application</h3>
+        <p>My Silo Moment (30 minutes, individual) moves from the fictional company to one real situation costing time, trust or performance. In Peer Exchange, a colleague asks only questions and does not solve. The Commitment Card asks for one behaviour that passes a test: could someone watching you notice it happen?</p>
+        <p class="where">Facilitator Guide, Sections 12 and 13. Slides 22 to 24</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:40px;">Design decisions worth noting</h3>
+    <div class="grid2" style="margin-top:12px;">
+      <div class="card">
+        <h3>Purposeful gamification</h3>
+        <p>Engagement comes from the mechanics: distributed information, time pressure, trade-offs, changing conditions and re-practice. There are no points, badges, leaderboards or competition between groups.</p>
+      </div>
+      <div class="card">
+        <h3>Do not rescue</h3>
+        <p>Productive friction is part of the learning. The guide tells facilitators to wait, then ask a question, and never supply the missing information.</p>
+      </div>
+      <div class="card">
+        <h3>No pre-set structure</h3>
+        <p>No chair, spokespeople or round-robin is suggested. How the room organises itself is part of what gets debriefed.</p>
+      </div>
+      <div class="card">
+        <h3>Honest about Round 2</h3>
+        <p>The guide plans for Round 2 going worse and treats that as useful: "What made the behaviours harder under pressure?"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CLAIMS ========== -->
+<section id="claims">
+  <div class="wrap">
+    <h2>What this page claims, and what it does not</h2>
+    <p class="lede">This is a design sample. It describes what was designed and intended.</p>
+
+    <div class="claims">
+      <div class="card yes">
+        <h3>Designed and documented</h3>
+        <ul class="tight">
+          <li>The experience creates opportunities to practise behaviours that can strengthen working trust.</li>
+          <li>The guide plans how to observe Round 1 against Round 2 using observation sheets.</li>
+          <li>It plans end-of-session indicators: spotting a real silo, naming the missing behaviour, and how specific the commitment is.</li>
+          <li>It offers an optional 30-day check-in with three questions: which behaviour did you try, what happened, what got in the way.</li>
+        </ul>
+      </div>
+      <div class="card no">
+        <h3>Not claimed here</h3>
+        <ul class="tight">
+          <li>Participant feedback or evaluation scores.</li>
+          <li>Business outcomes or return on investment.</li>
+          <li>Trust scores or measured behaviour change.</li>
+        </ul>
+        <p class="small" style="margin-top:12px;">The guide itself says that an afternoon does not build trust, and that results should be reported as observed, in plain terms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 8. EXPLORE THE WORK ========== -->
+<section id="explore" class="explore">
+  <div class="wrap">
+    <h2>Explore the work</h2>
+    <p class="lede">Both documents open in a new tab.</p>
+
+    <div class="grid2">
+      <a class="doc" href="pdfs/Facilitator_Guide.pdf" target="_blank" rel="noopener">
+        <div>
+          <h3>Facilitator Guide</h3>
+          <p>The full session design, run of show and every participant material.</p>
+          <ul>
+            <li>Pages 3 to 4: business context and design challenge</li>
+            <li>Page 7: session architecture</li>
+            <li>Page 11: simulation mechanics</li>
+            <li>Page 28 onwards: participant materials</li>
+          </ul>
+        </div>
+        <div class="go"><span>View Facilitator Guide →</span></div>
+      </a>
+
+      <a class="doc alt" href="pdfs/Facilitator_Slides.pdf" target="_blank" rel="noopener">
+        <div>
+          <h3>Facilitator Slides</h3>
+          <p>The 25-slide deck used to run the session.</p>
+          <ul>
+            <li>Slides 5 to 7: the simulation briefing</li>
+            <li>Slides 11 to 14: Round 1 debrief</li>
+            <li>Slide 17: the framework</li>
+            <li>Slides 22 to 24: workplace application and commitment</li>
+          </ul>
+        </div>
+        <div class="go"><span>View Facilitator Slides →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>L&amp;D work sample by Ananda Aishwarya. The company and product in the simulation are fictional. This page describes design materials only.</p>
+  </div>
+</footer>
+
+</body>
+</html>
